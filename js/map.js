@@ -28,7 +28,7 @@ var customBuild = function(data, map) {
 		arrayLayers.push(data[i].race);
 		if($.inArray(data[i].race, arrayLayers) == -1) {	
 			race.addLayer(data[i].race);
-			race.addTo(map);
+			data[i].race.addTo(map);
 	    }
 		if(data[i]["Victim's Gender"] == "Male"){
 			var circle = L.circleMarker([data[i].lat, data[i].lng], { color: "blue", fillColor: "blue", radius: 5, opacity: 1}).addTo(map);
@@ -40,11 +40,11 @@ var customBuild = function(data, map) {
 	}
 	
 	// Once layers are on the map, add a leaflet controller that shows/hides layers
-	var baseMaps = {
-		"Unknown" : race.Unknown
+	var raceLay = {
+		"White" : race
 	}
 	
-	var control = L.control.layers(baseMaps).addTo(map);
+	var control = L.control.layers(null, raceLay).addTo(map);
 }
 
 
