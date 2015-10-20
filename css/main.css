@@ -1,4 +1,11 @@
 /* You'll probably want to add some styles here */
+h1 {
+	text-align: center;
+}
+
+p{
+	text-align : center;
+}
 #container {
 	height:800px;
 }
